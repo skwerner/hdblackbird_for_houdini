@@ -1,0 +1,9 @@
+diff --git a/third_party/cuew/CMakeLists.txt b/third_party/cuew/CMakeLists.txt
+index 7a0fbd4..224e035 100644
+--- a/third_party/cuew/CMakeLists.txt
++++ b/third_party/cuew/CMakeLists.txt
+@@ -13,3 +13,4 @@ include_directories(
+ 
+ add_library(extern_cuew ${SRC} ${SRC_HEADERS})
+ install_external_library(extern_cuew)
++target_link_libraries(extern_cuew PUBLIC dl)

@@ -1,0 +1,12 @@
+diff --git a/src/kernel/kernel_types.h b/src/kernel/kernel_types.h
+index 74c2eb0..cd6113d 100644
+--- a/src/kernel/kernel_types.h
++++ b/src/kernel/kernel_types.h
+@@ -21,6 +21,7 @@
+ #  include <embree3/rtcore.h>
+ #  include <embree3/rtcore_scene.h>
+ #  define __EMBREE__
++RTC_NAMESPACE_OPEN
+ #endif
+ 
+ #include "kernel/kernel_math.h"
