@@ -56,7 +56,7 @@ message(STATUS "cycles cmake flags:" ${CYCLES_CONFIGURE_FLAGS})
 
 ExternalProject_Add(cycles
     GIT_REPOSITORY https://github.com/tangent-opensource/cycles.git
-    GIT_TAG cmake_exported_libraries
+    GIT_TAG dev
     GIT_SHALLOW TRUE
     PATCH_COMMAND patch <SOURCE_DIR>/src/kernel/kernel_types.h < ${CMAKE_SOURCE_DIR}/rtc_namespace.patch
     COMMAND patch <SOURCE_DIR>/third_party/cuew/CMakeLists.txt < ${CMAKE_SOURCE_DIR}/extern_cuew.patch
