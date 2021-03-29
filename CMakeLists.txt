@@ -74,7 +74,7 @@ list(APPEND HD_CYCLES_CONFIGURE_FLAGS -DUSE_HOUDINI_USD=TRUE -DHOUDINI_ROOT=/opt
 
 ExternalProject_Add(hdcycles
     GIT_REPOSITORY https://github.com/tangent-opensource/hdcycles.git
-    GIT_TAG modern_cmake
+    GIT_TAG dev
     GIT_SHALLOW TRUE
     CONFIGURE_COMMAND ${CMAKE_COMMAND} <SOURCE_DIR> ${HD_CYCLES_CONFIGURE_FLAGS}
     BUILD_COMMAND ${CMAKE_COMMAND} -E echo ""
