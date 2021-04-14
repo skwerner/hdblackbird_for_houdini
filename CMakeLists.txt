@@ -29,7 +29,7 @@ ExternalProject_Add(gflags
 # glog
 
 list(APPEND GLOG_CONFIGURE_FLAGS ${CONFIGURE_FLAGS})
-list(APPEND GFLAGS_CONFIGURE_FLAGS -DWITH_GTEST=OFF)
+list(APPEND GLOG_CONFIGURE_FLAGS -DWITH_GTEST=OFF)
 
 ExternalProject_Add(glog
     GIT_REPOSITORY https://github.com/google/glog.git
