@@ -58,12 +58,12 @@ list(APPEND CYCLES_CONFIGURE_FLAGS -DCMAKE_PROJECT_INCLUDE:FILEPATH=${CMAKE_SOUR
 
 message(STATUS "cycles cmake flags:" ${CYCLES_CONFIGURE_FLAGS})
 
-ExternalProject_Add(cycles
-    GIT_REPOSITORY https://github.com/tangent-opensource/cycles.git
-    GIT_TAG dev
+ExternalProject_Add(coreBlackbird
+    GIT_REPOSITORY https://github.com/tangent-opensource/coreBlackbird.git
+    GIT_TAG master
     GIT_SHALLOW TRUE
-    PATCH_COMMAND patch <SOURCE_DIR>/src/kernel/kernel_types.h < ${CMAKE_SOURCE_DIR}/rtc_namespace.patch
-    COMMAND patch <SOURCE_DIR>/third_party/cuew/CMakeLists.txt < ${CMAKE_SOURCE_DIR}/extern_cuew.patch
+   # PATCH_COMMAND patch <SOURCE_DIR>/src/kernel/kernel_types.h < ${CMAKE_SOURCE_DIR}/rtc_namespace.patch
+   # COMMAND patch <SOURCE_DIR>/third_party/cuew/CMakeLists.txt < ${CMAKE_SOURCE_DIR}/extern_cuew.patch
     CONFIGURE_COMMAND ${CMAKE_COMMAND} <SOURCE_DIR> ${CYCLES_CONFIGURE_FLAGS}
     BUILD_COMMAND ${CMAKE_COMMAND} -E echo ""
     INSTALL_COMMAND ${CMAKE_COMMAND} --build . -j --target install
@@ -76,12 +76,12 @@ ExternalProject_Add(cycles
 list(APPEND HD_CYCLES_CONFIGURE_FLAGS ${CONFIGURE_FLAGS})
 list(APPEND HD_CYCLES_CONFIGURE_FLAGS -DUSE_HOUDINI_USD=TRUE -DHOUDINI_ROOT=/opt/hfs18.5)
 
-ExternalProject_Add(hdcycles
-    GIT_REPOSITORY https://github.com/tangent-opensource/hdcycles.git
-    GIT_TAG dev
+ExternalProject_Add(hdBlackbird
+    GIT_REPOSITORY https://github.com/tangent-opensource/hdBlackbird.git
+    GIT_TAG main
     GIT_SHALLOW TRUE
     CONFIGURE_COMMAND ${CMAKE_COMMAND} <SOURCE_DIR> ${HD_CYCLES_CONFIGURE_FLAGS}
     BUILD_COMMAND ${CMAKE_COMMAND} -E echo ""
     INSTALL_COMMAND ${CMAKE_COMMAND} --build . -j --target install
-    DEPENDS cycles
+    DEPENDS coreBlackbird
     )
